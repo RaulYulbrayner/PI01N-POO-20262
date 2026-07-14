@@ -2,8 +2,6 @@
 
 Este repositorio reúne los materiales, ejemplos, ejercicios, talleres y evaluaciones correspondientes al espacio académico **Programación I** del Programa de Ingeniería de Sistemas y Computación de la Universidad del Quindío.
 
-El curso está orientado al análisis de problemas y a la construcción de soluciones de software mediante el paradigma de la **Programación Orientada a Objetos POO en Java**. Durante su desarrollo se aplican procesos de abstracción, modelado, diseño, codificación, documentación y pruebas, junto con buenas prácticas de programación y control de versiones.
-
 ## Información del curso
 
 | Información | Detalle |
@@ -27,7 +25,7 @@ El curso se organiza en cuatro núcleos temáticos:
 
 Comprende la identificación y abstracción de problemas, la creación de clases y objetos, el uso de constructores, métodos, diagramas de clases y relaciones de asociación, agregación y composición.
 
-También se introducen las pruebas automatizadas con JUnit, el desarrollo guiado por pruebas —TDD—, el control de versiones y las buenas prácticas de programación.
+También se introducen las pruebas automatizadas con JUnit, el desarrollo guiado por pruebas TDD, el control de versiones y las buenas prácticas de programación.
 
 ### 2. Encapsulamiento
 
