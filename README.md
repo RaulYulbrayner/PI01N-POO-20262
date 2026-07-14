@@ -2,7 +2,7 @@
 
 Este repositorio reúne los materiales, ejemplos, ejercicios, talleres y evaluaciones correspondientes al espacio académico **Programación I** del Programa de Ingeniería de Sistemas y Computación de la Universidad del Quindío.
 
-El curso está orientado al análisis de problemas y a la construcción de soluciones de software mediante el paradigma de la **Programación Orientada a Objetos —POO— en Java**. Durante su desarrollo se aplican procesos de abstracción, modelado, diseño, codificación, documentación y pruebas, junto con buenas prácticas de programación y control de versiones.
+El curso está orientado al análisis de problemas y a la construcción de soluciones de software mediante el paradigma de la **Programación Orientada a Objetos POO en Java**. Durante su desarrollo se aplican procesos de abstracción, modelado, diseño, codificación, documentación y pruebas, junto con buenas prácticas de programación y control de versiones.
 
 ## Información del curso
 
