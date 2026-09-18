@@ -79,6 +79,14 @@ public class Universidad {
        return encontrado;
     }
 
+    /**
+     * Metodo que permite eliminar un estudiante
+     * @param codigo del estudiante a eliminar
+     */
+    public void eliminarEstudiante(int codigo){
+        Estudiante estudiante = buscarEstudiante(codigo);
+        listUniversidadEstudiantes.remove(estudiante);
+    }
 
     public String getDireccion() {
         return direccion;
@@ -158,5 +166,21 @@ public class Universidad {
 
     public void setListUniversidadProfesores(List<Profesor> listUniversidadProfesores) {
         this.listUniversidadProfesores = listUniversidadProfesores;
+    }
+
+    @Override
+    public String toString() {
+        return "Universidad{" +
+                "direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", telefono=" + telefono +
+                ", numEstudiante=" + numEstudiante +
+                ", cantProfesores=" + cantProfesores +
+                ", tipoUniversidad='" + tipoUniversidad + '\'' +
+                ", listUniversidadCursos=" + listUniversidadCursos +
+                ", listUniversidadEstudiantes=" + listUniversidadEstudiantes +
+                ", listUniversidadProfesores=" + listUniversidadProfesores +
+                '}';
     }
 }

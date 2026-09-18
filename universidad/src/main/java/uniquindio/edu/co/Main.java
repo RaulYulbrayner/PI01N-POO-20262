@@ -24,12 +24,14 @@ public class Main {
                 "Publica",  "Armenia", 100);
 
         int opcion = 0;
-        while(opcion != 3){
+        while(opcion != 5){
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null, """
                             MENÚ
                             1. Matricular un estudiante
                             2. Buscar un estudiante
-                            3. Salir
+                            3. Eliminar un estudiante
+                            4. Mostrar información de la Universidad
+                            5. Salir
                             Seleccione una opción:
                             """));
             if(opcion == 1){
@@ -47,11 +49,15 @@ public class Main {
                 }else{
                     JOptionPane.showMessageDialog(null, "El estudiante no existe");
                 }
-            } else if(opcion == 3){
+            } else if (opcion == 3) {
+                int codigo = Integer.parseInt( JOptionPane.showInputDialog(null, "Ingrese el codigo del estudiante que desea eliminar"));
+                universidad2.eliminarEstudiante(codigo);
+                JOptionPane.showMessageDialog(null, "El estudiante fue eliminado");
+            } else if (opcion == 4) {
+                JOptionPane.showMessageDialog(null, universidad2.toString());
+            } else if(opcion == 5){
                 JOptionPane.showMessageDialog(null, "Saliendo del programa, chao muchachos");
             }
-
         }
-
     }
 }
