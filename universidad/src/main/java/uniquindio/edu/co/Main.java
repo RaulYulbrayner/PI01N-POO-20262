@@ -24,14 +24,15 @@ public class Main {
                 "Publica",  "Armenia", 100);
 
         int opcion = 0;
-        while(opcion != 5){
+        while(opcion != 6){
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null, """
                             MENÚ
                             1. Matricular un estudiante
                             2. Buscar un estudiante
                             3. Eliminar un estudiante
                             4. Mostrar información de la Universidad
-                            5. Salir
+                            5. Mostrar estudiantes palindromos
+                            6. Salir
                             Seleccione una opción:
                             """));
             if(opcion == 1){
@@ -40,7 +41,7 @@ public class Main {
                 String fechaNacimiento = JOptionPane.showInputDialog(null, "Ingrese la fechaNacimiento del estudiante");
                 String carrera = JOptionPane.showInputDialog(null, "Ingrese la carrera del estudiante");
                 int cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del estudiante"));
-                universidad2.matricularEstudiante(genero, nombre, fechaNacimiento, carrera, cod);
+                universidad2.matricularEstudianteV2(genero, nombre, fechaNacimiento, carrera, cod);
             } else if (opcion == 2) {
                 int codigo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el código del estudiante a buscar:"));
                 Estudiante estudiante = universidad2.buscarEstudiante(codigo);
@@ -56,6 +57,8 @@ public class Main {
             } else if (opcion == 4) {
                 JOptionPane.showMessageDialog(null, universidad2.toString());
             } else if(opcion == 5){
+                JOptionPane.showMessageDialog(null, universidad2.obtenerEstudiantesConNombrePalindromo() );
+            }else if(opcion == 6){
                 JOptionPane.showMessageDialog(null, "Saliendo del programa, chao muchachos");
             }
         }
