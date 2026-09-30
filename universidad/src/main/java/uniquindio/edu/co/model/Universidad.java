@@ -51,22 +51,22 @@ public class Universidad {
      * @param cod del estudiante matriculado
      * @return
      */
-    public boolean matricularEstudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod){
+    public boolean matricularEstudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
         boolean existe = false;
         Estudiante estudiante = buscarEstudiante(cod);
         if(estudiante == null){
-            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod);
+            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod,estado);
             listUniversidadEstudiantes.add(est);
             existe = true;
         }
         return existe;
     }
 
-    public String matricularEstudianteV2(String genero, String nombre, String fechaNacimiento, String carrera, int cod){
+    public String matricularEstudianteV2(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
         String existe = "";
         Estudiante estudiante = buscarEstudiante(cod);
         if(estudiante == null){
-            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod);
+            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod,estado);
             listUniversidadEstudiantes.add(est);
             existe = "El estudiante " + nombre + " se registro exitosamente";
         }else{

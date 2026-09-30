@@ -6,6 +6,8 @@ public class Estudiante {
     private String genero, nombre, fechaNacimiento, carrera;
     private int cod;
 
+    private EstadoEstudiante estado;
+
     /**
      * Metodo constructor de la clase Estudiante
      * @param genero del estudiante
@@ -13,12 +15,21 @@ public class Estudiante {
      * @param fechaNacimiento del estudiante
      * @param carrera del estudiante
      */
-    public Estudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod){
+    public Estudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
         this.genero = genero;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.carrera = carrera;
         this.cod = cod;
+        this.estado = estado;
+    }
+
+    public EstadoEstudiante getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoEstudiante estado) {
+        this.estado = estado;
     }
 
     public int getCod() {
@@ -64,10 +75,12 @@ public class Estudiante {
     @Override
     public String toString() {
         return "Estudiante{" +
-                " genero='" + genero + '\'' +
+                "genero='" + genero + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", carrera='" + carrera + '\'' +
+                ", cod=" + cod +
+                ", estado=" + estado +
                 '}';
     }
 }

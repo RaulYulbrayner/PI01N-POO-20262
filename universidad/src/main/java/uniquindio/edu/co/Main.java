@@ -1,5 +1,6 @@
 package uniquindio.edu.co;
 
+import uniquindio.edu.co.model.EstadoEstudiante;
 import uniquindio.edu.co.model.Estudiante;
 import uniquindio.edu.co.model.Universidad;
 
@@ -41,7 +42,23 @@ public class Main {
                 String fechaNacimiento = JOptionPane.showInputDialog(null, "Ingrese la fechaNacimiento del estudiante");
                 String carrera = JOptionPane.showInputDialog(null, "Ingrese la carrera del estudiante");
                 int cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del estudiante"));
-                universidad2.matricularEstudianteV2(genero, nombre, fechaNacimiento, carrera, cod);
+                int opcionEstado = Integer.parseInt(JOptionPane.showInputDialog(null, """
+                            MENÚ
+                            1. Nuevo.
+                            2. Antiguo.
+                            3. Riesgo academico.
+                            Seleccione una opción:
+                            """));
+                EstadoEstudiante estado = null;
+                if(opcionEstado == 1){
+                    estado = EstadoEstudiante.NUEVO;
+                } else if (opcionEstado == 2) {
+                    estado = EstadoEstudiante.ANTIGUO;
+                } else if (opcionEstado == 3) {
+                    estado = EstadoEstudiante.RIESGO_ACADEMICO;
+                }
+                universidad2.matricularEstudianteV2(genero, nombre, fechaNacimiento, carrera, cod, estado);
+
             } else if (opcion == 2) {
                 int codigo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el código del estudiante a buscar:"));
                 Estudiante estudiante = universidad2.buscarEstudiante(codigo);
