@@ -1,6 +1,6 @@
 package uniquindio.edu.co.model;
 
-public enum Estado {
+public enum EstadoPersona {
     ACTIVO,
     NO_ACTIVO
 }

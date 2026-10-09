@@ -14,7 +14,7 @@ public class Universidad {
 
     //Relaciones de la clase Universidad
     private List<Curso> listUniversidadCursos;
-    private List<Estudiante> listUniversidadEstudiantes;
+    private List<Persona> listPersonas;
     private List<Profesor> listUniversidadProfesores;
 
     /**
@@ -38,7 +38,7 @@ public class Universidad {
         this.tipoUniversidad = tipoUniversidad;
 
         this.listUniversidadCursos = new ArrayList<>();
-        this.listUniversidadEstudiantes = new ArrayList<>();
+        this.listPersonas = new ArrayList<>();
         this.listUniversidadProfesores = new ArrayList<>();
     }
 
@@ -48,26 +48,29 @@ public class Universidad {
      * @param nombre del estudiante matriculado
      * @param fechaNacimiento del estudiante matriculado
      * @param carrera del estudiante matriculado
-     * @param cod del estudiante matriculado
+     * @param documento del estudiante matriculado
      * @return
      */
-    public boolean matricularEstudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
+    public boolean matricularEstudiante(String genero, String nombre, String fechaNacimiento, String carrera, EstadoEstudiante estadoEstudiante, int documento, EstadoPersona estadoPersona){
         boolean existe = false;
-        Estudiante estudiante = buscarEstudiante(cod);
+        Persona estudiante = buscarEstudiante(documento);
         if(estudiante == null){
-            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod,estado);
-            listUniversidadEstudiantes.add(est);
+            Persona est = new Estudiante(genero,nombre,fechaNacimiento,carrera,estadoEstudiante, documento, estadoPersona);
+            listPersonas.add(est);
             existe = true;
         }
         return existe;
     }
 
-    public String matricularEstudianteV2(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
+    public String matricularEstudianteV2(String genero, String nombre,
+                                         String fechaNacimiento, String carrera,
+                                         EstadoEstudiante estadoEstudiante,
+                                         int documento, EstadoPersona estadoPersona){
         String existe = "";
-        Estudiante estudiante = buscarEstudiante(cod);
+        Persona estudiante = buscarEstudiante(documento);
         if(estudiante == null){
-            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,cod,estado);
-            listUniversidadEstudiantes.add(est);
+            Estudiante est = new Estudiante(genero,nombre,fechaNacimiento,carrera,estadoEstudiante, documento, estadoPersona);
+            listPersonas.add(est);
             existe = "El estudiante " + nombre + " se registro exitosamente";
         }else{
             existe = "El estudiante " + nombre + " ya se encuentra matriculado";
@@ -101,7 +104,7 @@ public class Universidad {
      */
     public String obtenerEstudiantesConNombrePalindromo(){
         String mensaje = "";
-        for(Estudiante estudiante : listUniversidadEstudiantes){
+        for(Persona estudiante : listPersonas){
             if(nombrePalindroma(estudiante.getNombre())){
                 mensaje += estudiante.toString() + "\n";
             }
@@ -134,11 +137,11 @@ public class Universidad {
      * @param codigo del estudiante a buscar
      * @return
      */
-    public Estudiante buscarEstudiante(int codigo){
-       Estudiante encontrado = null;
-       for(int i = 0; i < listUniversidadEstudiantes.size(); i++){
-           Estudiante estudiante = listUniversidadEstudiantes.get(i);
-           if(estudiante.getCod() == codigo){
+    public Persona buscarEstudiante(int codigo){
+       Persona encontrado = null;
+       for(int i = 0; i < listPersonas.size(); i++){
+           Persona estudiante = listPersonas.get(i);
+           if(estudiante.getDocumento() == codigo){
                encontrado = estudiante;
                break;
            }
@@ -151,8 +154,8 @@ public class Universidad {
      * @param codigo del estudiante a eliminar
      */
     public void eliminarEstudiante(int codigo){
-        Estudiante estudiante = buscarEstudiante(codigo);
-        listUniversidadEstudiantes.remove(estudiante);
+        Persona estudiante = buscarEstudiante(codigo);
+        listPersonas.remove(estudiante);
     }
 
     public String getDireccion() {
@@ -219,12 +222,12 @@ public class Universidad {
         this.listUniversidadCursos = listUniversidadCursos;
     }
 
-    public List<Estudiante> getListUniversidadEstudiantes() {
-        return listUniversidadEstudiantes;
+    public List<Persona> getListPersonas() {
+        return listPersonas;
     }
 
-    public void setListUniversidadEstudiantes(List<Estudiante> listUniversidadEstudiantes) {
-        this.listUniversidadEstudiantes = listUniversidadEstudiantes;
+    public void setListPersonas(List<Persona> listPersonas) {
+        this.listPersonas = listPersonas;
     }
 
     public List<Profesor> getListUniversidadProfesores() {
@@ -246,7 +249,7 @@ public class Universidad {
                 ", cantProfesores=" + cantProfesores +
                 ", tipoUniversidad='" + tipoUniversidad + '\'' +
                 ", listUniversidadCursos=" + listUniversidadCursos +
-                ", listUniversidadEstudiantes=" + listUniversidadEstudiantes +
+                ", listPersonas=" + listPersonas +
                 ", listUniversidadProfesores=" + listUniversidadProfesores +
                 '}';
     }

@@ -1,8 +1,6 @@
 package uniquindio.edu.co;
 
-import uniquindio.edu.co.model.EstadoEstudiante;
-import uniquindio.edu.co.model.Estudiante;
-import uniquindio.edu.co.model.Universidad;
+import uniquindio.edu.co.model.*;
 
 import javax.swing.*;
 
@@ -41,7 +39,8 @@ public class Main {
                 String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del estudiante");
                 String fechaNacimiento = JOptionPane.showInputDialog(null, "Ingrese la fechaNacimiento del estudiante");
                 String carrera = JOptionPane.showInputDialog(null, "Ingrese la carrera del estudiante");
-                int cod = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del estudiante"));
+                int documento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el codigo del estudiante"));
+
                 int opcionEstado = Integer.parseInt(JOptionPane.showInputDialog(null, """
                             MENÚ
                             1. Nuevo.
@@ -57,11 +56,24 @@ public class Main {
                 } else if (opcionEstado == 3) {
                     estado = EstadoEstudiante.RIESGO_ACADEMICO;
                 }
-                universidad2.matricularEstudianteV2(genero, nombre, fechaNacimiento, carrera, cod, estado);
+
+                int opcionPersona = Integer.parseInt(JOptionPane.showInputDialog(null, """
+                            MENÚ
+                            1. ACTIVO.
+                            2. NO_ACTIVO.
+                            Seleccione una opción:
+                            """));
+                EstadoPersona estadoPersonaE = null;
+                if(opcionPersona == 1){
+                    estadoPersonaE = EstadoPersona.ACTIVO;
+                } else if (opcionPersona == 2) {
+                    estadoPersonaE = EstadoPersona.NO_ACTIVO;
+                }
+                universidad2.matricularEstudiante(genero, nombre, fechaNacimiento, carrera, estado, documento, estadoPersonaE);
 
             } else if (opcion == 2) {
                 int codigo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el código del estudiante a buscar:"));
-                Estudiante estudiante = universidad2.buscarEstudiante(codigo);
+                Persona estudiante = universidad2.buscarEstudiante(codigo);
                 if(estudiante != null){
                     JOptionPane.showMessageDialog(null, "Estudiante encontrado:\n" + estudiante.toString());
                 }else{

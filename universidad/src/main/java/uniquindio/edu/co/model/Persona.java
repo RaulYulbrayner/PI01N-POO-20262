@@ -1,10 +1,10 @@
 package uniquindio.edu.co.model;
 
-public class Persona {
+public abstract class Persona {
 
     private String nombre;
     private int documento;
-    private Estado estado;
+    private EstadoPersona estado;
 
     /**
      * Metodo constructor de la clase persona
@@ -12,10 +12,16 @@ public class Persona {
      * @param documento de la persona
      * @param estado de la persona
      */
-    public Persona(String nombre, int documento, Estado estado) {
+    public Persona(String nombre, int documento, EstadoPersona estado) {
         this.nombre = nombre;
         this.documento = documento;
         this.estado = estado;
+    }
+
+    public abstract void dormir();
+
+    public void comer(){
+        System.out.println("Perona comiendo");
     }
 
     public String getNombre() {
@@ -34,11 +40,11 @@ public class Persona {
         this.documento = documento;
     }
 
-    public Estado getEsta() {
+    public EstadoPersona getEstadoPersona() {
         return estado;
     }
 
-    public void setEsta(Estado esta) {
+    public void setEsta(EstadoPersona esta) {
         this.estado = esta;
     }
 

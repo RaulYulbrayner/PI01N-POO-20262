@@ -16,7 +16,7 @@ public class Profesor extends Persona {
      * @param edad del profesor
      * @param salario del profesor
      */
-    public Profesor(String nombre, int documento, Estado estado,
+    public Profesor(String nombre, int documento, EstadoPersona estado,
                     String especialidad, String facultad, int edad, double salario) {
         super(nombre, documento, estado);
         this.especialidad = especialidad;
@@ -55,6 +55,11 @@ public class Profesor extends Persona {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    @Override
+    public void dormir() {
+        System.out.println("Profe dormilon");
     }
 
     @Override
