@@ -1,12 +1,10 @@
 package uniquindio.edu.co.model;
 
-public class Estudiante {
+public class Estudiante extends Persona {
 
     // Atributos de la clase Estudiante
-    private String genero, nombre, fechaNacimiento, carrera;
-    private int cod;
-
-    private EstadoEstudiante estado;
+    private String genero, fechaNacimiento, carrera;
+    private EstadoEstudiante estadoEstudiante;
 
     /**
      * Metodo constructor de la clase Estudiante
@@ -15,37 +13,16 @@ public class Estudiante {
      * @param fechaNacimiento del estudiante
      * @param carrera del estudiante
      */
-    public Estudiante(String genero, String nombre, String fechaNacimiento, String carrera, int cod, EstadoEstudiante estado){
+    public Estudiante(String genero, String nombre, String fechaNacimiento, String carrera, EstadoEstudiante estadoEstudiante, int documento, EstadoPersona estadoPersona){
+        super(nombre, documento, estadoPersona);
         this.genero = genero;
-        this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.carrera = carrera;
-        this.cod = cod;
-        this.estado = estado;
+        this.estadoEstudiante = estadoEstudiante;
     }
 
-    public EstadoEstudiante getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoEstudiante estado) {
-        this.estado = estado;
-    }
-
-    public int getCod() {
-        return cod;
-    }
-
-    public void setCod(int cod) {
-        this.cod = cod;
-    }
-
-    public String getNombre(){
-        return nombre;
-    }
-
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+    public void atenderServicio(){
+        comer();
     }
 
     public String getGenero() {
@@ -72,15 +49,29 @@ public class Estudiante {
         this.carrera = carrera;
     }
 
+    public EstadoEstudiante getEstadoEstudiante() {
+        return estadoEstudiante;
+    }
+
+    public void setEstadoEstudiante(EstadoEstudiante estadoEstudiante) {
+        this.estadoEstudiante = estadoEstudiante;
+    }
+
+    @Override
+    public void dormir() {
+        System.out.println("Estudiante roncando..... :)");
+    }
+
     @Override
     public String toString() {
         return "Estudiante{" +
                 "genero='" + genero + '\'' +
-                ", nombre='" + nombre + '\'' +
                 ", fechaNacimiento='" + fechaNacimiento + '\'' +
                 ", carrera='" + carrera + '\'' +
-                ", cod=" + cod +
-                ", estado=" + estado +
+                ", estadoEstudiante=" + estadoEstudiante +
+                ", mombre=" + getNombre() +
+                ", documento=" + getDocumento() +
+                ", estadoPersona=" + getEstadoPersona() +
                 '}';
     }
 }

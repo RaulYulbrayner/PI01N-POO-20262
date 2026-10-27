@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.model;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Reserva {
@@ -13,7 +14,7 @@ public class Reserva {
     private double valorTotal;
 
     private Huesped huesped;
-    private ArrayList<DetalleReserva> listDetalleReserva;
+    private List<DetalleReserva> listDetalleReserva;
     private ArrayList<DetalleServicioAdicional> listDetalleServicioAdicional;
 
     /**
@@ -114,7 +115,7 @@ public class Reserva {
         return estado;
     }
 
-    public ArrayList<DetalleReserva> getListDetalleReserva() {
+    public List<DetalleReserva> getListDetalleReserva() {
         return listDetalleReserva;
     }
 
