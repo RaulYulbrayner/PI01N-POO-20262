@@ -101,5 +101,50 @@ public class Venta {
                 ", listVentaBoletas=" + listVentaBoletas +
                 '}';
     }
+
+
+    public boolean esPalindromo(String palabra) {
+        palabra = palabra.toLowerCase();
+        int inicio = 0;
+        int fin = palabra.length() - 1;
+        while (inicio < fin) {
+            if (palabra.charAt(inicio) != palabra.charAt(fin)) {
+                return false;
+            }
+            inicio++;
+            fin--;
+        }
+        return true;
+    }
+
+    public int factorial(int n) {
+        int resultado = 1;
+        for (int i = 1; i <= n; i++) {
+            resultado = resultado * i;
+        }
+        return resultado;
+    }
+
+    public String esPalindromo2(String palabra) {
+        String invertida = "";
+        for (int i = palabra.length() - 1; i >= 0; i--) {
+            invertida += palabra.charAt(i);
+        }
+        if (palabra.equalsIgnoreCase(invertida)) {
+            return "Es palindromo";
+        } else {
+            return "No es palindromo";
+        }
+    }
+
+    public String convertirMinusculas(String palabra) {
+        return palabra.toLowerCase();
+    }
+
+    public double dividir(int num1, int num2){
+        double valor = num1 / num2;
+        return valor;
+    }
+
 }
 
