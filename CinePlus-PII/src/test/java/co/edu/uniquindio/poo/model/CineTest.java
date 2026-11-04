@@ -18,6 +18,6 @@ class CineTest {
 
     @Test
     void buscarPelicula() {
-        
+
     }
 }
