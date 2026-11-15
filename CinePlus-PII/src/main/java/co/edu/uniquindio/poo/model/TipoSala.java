@@ -1,7 +1,9 @@
 package co.edu.uniquindio.poo.model;
 
 public enum TipoSala {
-    TRADICIONAL(0.0), VIP(0.30), TRES_D(0.20);
+    TRADICIONAL(0.0),
+    VIP(0.30),
+    TRES_D(0.20);
 
     private final double recargo;
 
